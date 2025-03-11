@@ -1,39 +1,57 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Variables for movement and jump
-    public float moveSpeed = 5f; 
-    public float jumpForce = 10f; 
-    public float jetpackForce = 8f; 
-    public float gravityScale = 2f; 
+    public float moveSpeed = 5f;
+    public float jumpForce = 10f;
+    public float jetpackForce = 8f;
+    public float gravityScale = 2f;
 
-    private Rigidbody2D rb; 
-    private bool isGrounded = false; 
-    private float moveInput; 
+    // Jetpack fuel system
+    public float maxFuel = 100f;
+    public float fuelConsumptionRate = 20f;
+    public float fuelRechargeRate = 10f;
+    private float currentFuel;
+    private bool isRecharging = false;
+
+    // UI Fuel Bar
+    public Image fuelBar;
+
+    private Rigidbody2D rb;
+    private bool isGrounded = false;
+    private float moveInput;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        currentFuel = maxFuel;
     }
 
     private void Update()
     {
-        // Jetpack lift
-        if (Input.GetKey(KeyCode.Space))
+        moveInput = Input.GetAxis("Horizontal");
+
+        // Jetpack lift if fuel is available
+        if (Input.GetKey(KeyCode.Space) && currentFuel > 0)
         {
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, Mathf.Lerp(rb.linearVelocity.y, jetpackForce, Time.deltaTime * 10f));
+            currentFuel -= fuelConsumptionRate * Time.deltaTime;
+            isRecharging = false;
         }
         else
         {
-            if (isGrounded)
+            if (!isRecharging)
+            {
+                StartCoroutine(RechargeFuel());
+            }
+
+            if (isGrounded && Input.GetKeyDown(KeyCode.Space))
             {
                 // Regular jump when grounded
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                }
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             }
             else
             {
@@ -42,6 +60,28 @@ public class PlayerMovement : MonoBehaviour
                 rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
             }
         }
+
+        // Clamp fuel within bounds
+        currentFuel = Mathf.Clamp(currentFuel, 0, maxFuel);
+
+        // Update UI Fuel Bar
+        if (fuelBar != null)
+        {
+            fuelBar.fillAmount = currentFuel / maxFuel;
+        }
+    }
+
+    private IEnumerator RechargeFuel()
+    {
+        isRecharging = true;
+        yield return new WaitForSeconds(0.5f); // Small delay before recharging
+
+        while (currentFuel < maxFuel && !Input.GetKey(KeyCode.Space))
+        {
+            currentFuel += fuelRechargeRate * Time.deltaTime;
+            yield return null;
+        }
+        isRecharging = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -59,7 +99,17 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Coin")) // Fuel pickup
+        {
+            currentFuel = Mathf.Min(currentFuel + 20f, maxFuel);
+            Destroy(other.gameObject);
+        }
+    }
 }
+
 
 
 // Test

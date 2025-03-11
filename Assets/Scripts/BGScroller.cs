@@ -4,13 +4,12 @@ using System.Collections.Generic;
 
 public class BGScroller : MonoBehaviour
 {
-    public BoxCollider2D collider;
+    public new BoxCollider2D collider;
     public Rigidbody2D rb;
 
     private float width;
-    private float scrollSpeed = -2f;
+    private float scrollSpeed = -10f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         collider = GetComponent<BoxCollider2D>();
@@ -22,12 +21,11 @@ public class BGScroller : MonoBehaviour
         rb.linearVelocity = new Vector2(scrollSpeed, 0);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.x < -width)
         {
-            Vector2 resetPosition = new Vector2((width - 0.3f) * 2f, 0);
+            Vector2 resetPosition = new Vector2(width * 2f, 0);
             transform.position = (Vector2)transform.position + resetPosition;
         }
     }
