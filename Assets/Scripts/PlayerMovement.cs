@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,11 +19,14 @@ public class PlayerMovement : MonoBehaviour
     private bool isRecharging = false;
 
     // UI Fuel Bar
+    [SerializeField] private TMP_Text coinText;
     public Image fuelBar;
 
     private Rigidbody2D rb;
     private bool isGrounded = false;
     private float moveInput;
+
+    private int coinCount = 0;
 
     private void Awake()
     {
@@ -104,6 +108,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Coin")) // Fuel pickup
         {
+            coinCount++;
+            coinText.text = coinCount.ToString();
             currentFuel = Mathf.Min(currentFuel + 20f, maxFuel);
             Destroy(other.gameObject);
         }
