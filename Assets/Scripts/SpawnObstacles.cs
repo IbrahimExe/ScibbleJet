@@ -31,10 +31,10 @@ public class SpawnObstacles : MonoBehaviour
 
 public class ObstacleMovement : MonoBehaviour
 {
-    private float moveSpeed = -10f; // Match background speed
+    private float moveSpeed = 10f; // Match background speed
 
     void Update()
     {
-        transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
     }
 }

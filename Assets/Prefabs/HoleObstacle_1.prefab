@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3009956493513834056}
   - component: {fileID: 8248880117121368261}
   - component: {fileID: 1339476864389717240}
-  - component: {fileID: 8818507524702362507}
+  - component: {fileID: 8047815181330512054}
   m_Layer: 0
   m_Name: HoleObstacle_1
   m_TagString: Obstacle
@@ -125,15 +125,30 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.22, y: -0.04}
   m_Radius: 1.6
---- !u!114 &8818507524702362507
-MonoBehaviour:
+--- !u!50 &8047815181330512054
+Rigidbody2D:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514565594109216574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ab04d472ae15b04285189adbc93e02a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
