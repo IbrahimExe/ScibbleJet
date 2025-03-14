@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hole Obstacle_1-02_0: 1536074159431419591
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

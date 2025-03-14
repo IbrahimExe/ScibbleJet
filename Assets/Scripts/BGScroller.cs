@@ -21,7 +21,7 @@ public class BGScroller : MonoBehaviour
         rb.linearVelocity = new Vector2(scrollSpeed, 0);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (transform.position.x < -width)
         {

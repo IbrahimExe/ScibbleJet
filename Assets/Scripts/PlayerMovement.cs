@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(RechargeFuel());
             }
 
-            if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+            if (isGrounded && Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
                 // Regular jump when grounded
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
