@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(RechargeFuel());
             }
 
-            if (isGrounded && Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            if (isGrounded && Input.GetKeyDown(KeyCode.Space))
             {
                 // Regular jump when grounded
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         {
             coinCount++;
             coinText.text = coinCount.ToString();
-            currentFuel = Mathf.Min(currentFuel + 20f, maxFuel);
+            currentFuel = Mathf.Min(currentFuel + 10f, maxFuel);
             Destroy(other.gameObject);
         }
     }

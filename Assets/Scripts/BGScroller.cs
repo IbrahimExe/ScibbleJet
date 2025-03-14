@@ -18,10 +18,11 @@ public class BGScroller : MonoBehaviour
         width = collider.size.x;
         collider.enabled = false;
 
-        rb.linearVelocity = new Vector2(scrollSpeed, 0);
+        //rb.linearVelocity = new Vector2(scrollSpeed, 0);
+        transform.Translate(Vector3.left * scrollSpeed * Time.deltaTime);
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (transform.position.x < -width)
         {

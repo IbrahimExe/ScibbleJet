@@ -31,6 +31,12 @@ public class GameManager : MonoBehaviour
         distanceText.text = distanceTraveled.ToString("F2"); // Display up to 2 decimal places
 
         finalScore.text = distanceTraveled.ToString("F2");
+
+
+        if (isGameOver && Input.GetKeyDown(KeyCode.R))
+        {
+            PlayAgain();
+        }
     }
 
     public void GameOver()
