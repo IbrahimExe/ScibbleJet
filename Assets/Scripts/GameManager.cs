@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using NUnit.Framework;
 using UnityEngine.SocialPlatforms.Impl;
 using System.Collections.Generic;
+using Unity.Services.Leaderboards.Models;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,12 +12,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text finalScore;
     [SerializeField] private GameObject gameOverScreen;
 
+    // Leaderboard UI Elements
+    [Header("Leaderboard UI")]
+    [SerializeField] private GameObject LeaderboardScreen;
+    [SerializeField] private TMP_Text[] namesText;
+    [SerializeField] private TMP_Text[] scoresText;
+
     private float distanceTraveled = 0f;
     private bool isGameOver = false;
 
     private void Start()
     {
         gameOverScreen.SetActive(false); // Hide Game Over screen at start
+        LeaderboardScreen.SetActive(false);
     }
 
     private void Update()
@@ -62,10 +70,30 @@ public class GameManager : MonoBehaviour
     public void LoadLeaderboard()
     {
         UGSManager.Instance.GetScores("HighScore");
+        LeaderboardScreen.SetActive(true);
     }
 
-    //public void ShowLeaderboardUI(List<LeaderboardEntry> entries)
-    //{
+    public void LeaderboardBack()
+    {
+        LeaderboardScreen.SetActive(false);
+    }
 
-    //}
+    public void ShowLeaderboardUI(List<LeaderboardEntry> entries)
+    {
+        for (int i = 0; i < scoresText.Length; i++)
+        {
+            {
+                if(entries.Count <= i)
+                {
+                    scoresText[i].text = "";
+                    namesText[i].text = "";
+                }
+                else
+                {
+                    scoresText[i].text = entries[i].Score.ToString();
+                    namesText[i].text = entries[i].PlayerName.ToString().Split('#')[0];
+                }
+            }
+        }
+    }
 }

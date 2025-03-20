@@ -47,7 +47,7 @@ public class UGSManager : MonoBehaviour
 
         Debug.Log("Signed in as Guest!");
 
-        string randomName = "Guest" + Random.Range(1, 9999);
+        string randomName = "Guest" + Random.Range(1, 999);
         await AuthenticationService.Instance.UpdatePlayerNameAsync(randomName);
         Debug.Log($"Player Name: {AuthenticationService.Instance.PlayerName}");
     }
@@ -71,8 +71,8 @@ public class UGSManager : MonoBehaviour
             Debug.Log($"Name: {entry.PlayerName} - {entry.Score}");
         }
 
-        //GameManager gm = GameObject.FindGameObjectsWithTag("GameManager");
-        //gm.GetComponent<GameManager>().ShowLeaderboardUI(entries);
+        GameObject gm = GameObject.FindGameObjectWithTag("GameController");
+        gm.GetComponent<GameManager>().ShowLeaderboardUI(entries);
     }
 
 }
