@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
+using System.Collections.Generic;
+using Unity.Services.Leaderboards.Models;
 
 public class RewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
+    [Header("GameObject Finders")]
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject LeaderboardScreen;
 
     [SerializeField] Button _showAdButton;
     [SerializeField] string _androidAdUnitId = "Rewarded_Android";
@@ -67,9 +71,11 @@ public class RewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
             // Grant a reward.
             Debug.Log("CONTINUE PLAYING");
 
-            // isGameOver 
+            gameManager.GameContinue();
         }
     }
+
+
 
     // Implement Load and Show Listener error callbacks:
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)

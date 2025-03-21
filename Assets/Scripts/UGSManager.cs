@@ -3,10 +3,7 @@ using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Core.Environments;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 using Unity.Services.Leaderboards;
-using Newtonsoft.Json;
-using NUnit.Framework;
 using Unity.Services.Leaderboards.Models;
 using System.Collections.Generic;
 
@@ -68,11 +65,10 @@ public class UGSManager : MonoBehaviour
 
         foreach (var entry in entries)
         {
-            Debug.Log($"Name: {entry.PlayerName} - {entry.Score}");
+            Debug.Log($"Name: {entry.PlayerName} - {entry.Score.ToString()}");
         }
 
         GameObject gm = GameObject.FindGameObjectWithTag("GameController");
         gm.GetComponent<GameManager>().ShowLeaderboardUI(entries);
     }
-
 }

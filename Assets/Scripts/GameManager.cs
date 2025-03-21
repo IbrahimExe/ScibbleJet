@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text[] scoresText;
 
     private float distanceTraveled = 0f;
-    private bool isGameOver = false;
+    public bool isGameOver = false;
+    private float invincible = 0.0f;
 
     private void Start()
     {
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        invincible -= Time.deltaTime;
+
         if (!isGameOver)
         {
             distanceTraveled += Time.deltaTime * 8f; // Adjust speed factor as needed
@@ -49,10 +52,21 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        isGameOver = true;
-        SendScoreToLeaderboard();
-        gameOverScreen.SetActive(true); // Show Game Over screen
-        Time.timeScale = 0f; // Pause the game
+        if (invincible <= 0.0f)
+        {
+            isGameOver = true;
+            SendScoreToLeaderboard();
+            gameOverScreen.SetActive(true); // Show Game Over screen
+            Time.timeScale = 0f; // Pause the game
+        }
+    }
+
+    public void GameContinue()
+    {
+        isGameOver = false;
+        gameOverScreen.SetActive(false); // Show Game Over screen
+        Time.timeScale = 1f; // Pause the game
+        invincible = 2.0f;
     }
 
     // Button Funcitons:
@@ -90,7 +104,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    scoresText[i].text = entries[i].Score.ToString();
+                    scoresText[i].text = entries[i].Score.ToString("#.00");
                     namesText[i].text = entries[i].PlayerName.ToString().Split('#')[0];
                 }
             }

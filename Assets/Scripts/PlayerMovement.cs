@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     // Variables for movement and jump
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
-    public float jetpackForce = 8f;
+    public float pencilForce = 8f;
     public float gravityScale = 2f;
 
     // Jetpack fuel system
@@ -21,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     // UI Fuel Bar
     [SerializeField] private TMP_Text coinText;
-    public Image fuelBar;
+    public Image pencilBar;
 
     private Rigidbody2D rb;
     private bool isGrounded = false;
@@ -37,12 +36,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        moveInput = Input.GetAxis("Horizontal");
+        // moveInput = Input.GetAxis("Horizontal");
 
         // Jetpack lift if fuel is available
         if (Input.GetKey(KeyCode.Space) && currentFuel > 0)
         {
-            rb.linearVelocity = new Vector2(moveInput * moveSpeed, Mathf.Lerp(rb.linearVelocity.y, jetpackForce, Time.deltaTime * 10f));
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, Mathf.Lerp(rb.linearVelocity.y, pencilForce, Time.deltaTime * 10f));
             currentFuel -= fuelConsumptionRate * Time.deltaTime;
             isRecharging = false;
         }
@@ -70,9 +69,9 @@ public class PlayerMovement : MonoBehaviour
         currentFuel = Mathf.Clamp(currentFuel, 0, maxFuel);
 
         // Update UI Fuel Bar
-        if (fuelBar != null)
+        if (pencilBar != null)
         {
-            fuelBar.fillAmount = currentFuel / maxFuel;
+            pencilBar.fillAmount = currentFuel / maxFuel;
         }
     }
 
