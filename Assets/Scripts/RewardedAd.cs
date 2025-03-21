@@ -4,6 +4,8 @@ using UnityEngine.Advertisements;
 
 public class RewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
+    [SerializeField] private GameManager gameManager;
+
     [SerializeField] Button _showAdButton;
     [SerializeField] string _androidAdUnitId = "Rewarded_Android";
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
@@ -16,6 +18,8 @@ public class RewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
         _adUnitId = _iOSAdUnitId;
 #elif UNITY_ANDROID
         _adUnitId = _androidAdUnitId;
+#elif UNITY_EDITOR
+        _adUnitId = _androidAdUnitId;
 #endif
 
         // Disable the button until the ad is ready to show:
@@ -26,7 +30,7 @@ public class RewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
     public void LoadAd()
     {
         // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
-        Debug.Log("Loading Ad: " + _adUnitId);
+        Debug.Log("Loading Ad: " + _adUnitId);;
         Advertisement.Load(_adUnitId, this);
     }
 
@@ -43,6 +47,7 @@ public class RewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
             _showAdButton.interactable = true;
         }
     }
+
 
     // Implement a method to execute when the user clicks the button:
     public void ShowAd()
@@ -61,6 +66,8 @@ public class RewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
             Debug.Log("Unity Ads Rewarded Ad Completed");
             // Grant a reward.
             Debug.Log("CONTINUE PLAYING");
+
+            // isGameOver 
         }
     }
 

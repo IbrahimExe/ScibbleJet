@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Coin")) // Fuel pickup
+        if (other.CompareTag("Coin")) // Coin pickup
         {
             coinCount++;
             coinText.text = coinCount.ToString();

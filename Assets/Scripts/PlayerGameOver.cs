@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerGameOver : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager; // Assign in Inspector
+    [SerializeField] private GameManager gameManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
