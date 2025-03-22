@@ -57,7 +57,7 @@ public class RewardedAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
     public void ShowAd()
     {
         // Disable the button:
-        _showAdButton.interactable = false;
+        // _showAdButton.interactable = false;
         // Then show the ad:
         Advertisement.Show(_adUnitId, this);
     }
