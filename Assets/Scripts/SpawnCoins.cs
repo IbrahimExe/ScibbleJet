@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class SpawnCoins : MonoBehaviour
 {
-    public GameObject coinPrefab; // Coin prefab to spawn
+    public GameObject coinPrefab; 
     public float maxX;
     public float minX;
     public float maxY;
     public float minY;
-    public float timeBetweenSpawn; // Faster spawn time
+    public float timeBetweenSpawn; 
     private float spawnTime;
 
     void Update()
@@ -24,13 +24,13 @@ public class SpawnCoins : MonoBehaviour
         float randomX = Random.Range(minX, maxX);
         float randomY = Random.Range(minY, maxY);
         GameObject spawnedCoin = Instantiate(coinPrefab, transform.position + new Vector3(randomX, randomY, 0), Quaternion.identity);
-        spawnedCoin.AddComponent<CoinMovement>(); // Attach movement script
+        spawnedCoin.AddComponent<CoinMovement>(); 
     }
 }
 
 public class CoinMovement : MonoBehaviour
 {
-    private float moveSpeed = 10f; // Match background speed
+    private float moveSpeed = 10f;
 
     void Update()
     {
