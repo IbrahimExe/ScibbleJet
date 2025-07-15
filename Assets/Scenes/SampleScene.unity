@@ -4513,7 +4513,7 @@ MonoBehaviour:
   minX: 3.5
   maxY: 4.25
   minY: -4.25
-  timeBetweenSpawn: 0.6
+  timeBetweenSpawn: 0.64
 --- !u!1 &1726658908
 GameObject:
   m_ObjectHideFlags: 0
@@ -4756,7 +4756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1908483276
 RectTransform:
   m_ObjectHideFlags: 0
