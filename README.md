@@ -2,8 +2,11 @@
 
 ![AppImg](https://github.com/user-attachments/assets/163e28d5-da6b-45c1-8884-2653a1777f4d)
 
-# 🛫 Jetpack Escape — A Unity 2D Infinite Runner
+# 🛫 Jetpack Escape - A Unity 2D Infinite Runner
 </div>
+
+> ⚠️ *This is my first attempt at a mobile game using the Unity Engine - as well as establishing the connection with Unity's Gaming Services.
+> I hope to regularly continue to update and polish the game as it's the first game up on my Itch page!*
 
 ## 🎮 Overview
 Jetpack Escape is a 2D infinite runner game made in Unity, inspired by the gameplay of *Jetpack Joyride*.  
