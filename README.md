@@ -17,11 +17,12 @@ Players collect coins and dodge randomly spawned obstacles while flying using li
 ## 🚀 Features
 
 - ✅ Infinite side-scrolling world
+- ✅ Custom made, original UI elements made in Adobe Illustrator
 - ✅ A fuel system with recharge mechanic
 - ✅ Coin and obstacle spawners
 - ✅ Game over screen with "Play Again" support
 - ✅ Coin score & distance tracker UI
-- ✅ Unity Ads integration with **Rewarded Second Life**
+- ✅ Unity Ads integration with **Rewarded Second Life** showcasing an advertisement
 - ✅ Unity Leaderboards using Unity Gaming Services
 
 ---
