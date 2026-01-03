@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     // Pause Menu UI Elements
     [Header("Pause Menu UI")]
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private TMP_Text countdownText;             // Text Template
+    [SerializeField] private TMP_Text countdownText;             
     [SerializeField] private float resumeCountdownSeconds = 3f;  // Countdown length
 
     private float distanceTraveled = 0f;
@@ -36,11 +36,16 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameOverScreen.SetActive(false); 
+        gameOverScreen.SetActive(false);
         LeaderboardScreen.SetActive(false);
         if (pauseMenu != null) pauseMenu.SetActive(false);
         if (countdownText != null) countdownText.gameObject.SetActive(false);
-    } // Hide UI screens at start
+
+        isPaused = true;
+        Time.timeScale = 0f;
+
+        StartCoroutine(CountdownAndResume());
+    } 
 
     private void Update()
     {
@@ -48,8 +53,15 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape) && !isGameOver && !isCountingDown)
         {
-            if (isPaused) HidePauseMenu();
-            else ShowPauseMenu();
+            if (isPaused)
+            {
+                //HidePauseMenu();
+                ResumeWithCountdown();
+            }
+            else
+            {
+                ShowPauseMenu();
+            }
         }
 
         // Update distance only when not game over and not paused
@@ -73,16 +85,16 @@ public class GameManager : MonoBehaviour
         {
             isGameOver = true;
             SendScoreToLeaderboard();
-            gameOverScreen.SetActive(true); // Show Game Over screen
-            Time.timeScale = 0f; // Pause the game
+            gameOverScreen.SetActive(true); 
+            Time.timeScale = 0f; 
         }
     }
 
     public void GameContinue()
     {
         isGameOver = false;
-        gameOverScreen.SetActive(false); // Hide Game Over screen
-        Time.timeScale = 1f; // Play the game
+        gameOverScreen.SetActive(false);
+        Time.timeScale = 1f; 
         invincible = 2.0f;
     }
 
@@ -106,12 +118,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    // Called by the Resume button (and by the Pause HUD Menu button when used to resume)
     public void ResumeWithCountdown()
     {
         if (isCountingDown) return;
 
-        // If we are not currently paused, still run the countdown (useful if called from HUD)
         StartCoroutine(CountdownAndResume());
     }
 
@@ -140,7 +150,6 @@ public class GameManager : MonoBehaviour
         if (countdownText != null) countdownText.gameObject.SetActive(false);
         if (pauseMenu != null) pauseMenu.SetActive(false);
 
-        // Resume time and gameplay as well as scores
         Time.timeScale = 1f;
         isPaused = false;
         isCountingDown = false;
@@ -161,7 +170,6 @@ public class GameManager : MonoBehaviour
             ResumeWithCountdown();
         }
     }
-
 
 
     // Button Funcitons:
@@ -209,7 +217,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < scoresText.Length; i++)
         {
             {
-                if(entries.Count <= i)
+                if (entries.Count <= i)
                 {
                     scoresText[i].text = "";
                     namesText[i].text = "";
