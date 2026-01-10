@@ -14,7 +14,7 @@ Players collect coins and dodge randomly spawned obstacles while flying using li
 
 ---
 
-## 🚀 Features
+## Features
 
 - ✅ Infinite side-scrolling world
 - ✅ Custom made, original UI elements made in Adobe Illustrator
@@ -27,7 +27,7 @@ Players collect coins and dodge randomly spawned obstacles while flying using li
 
 ---
 
-## 🧪 How It Was Made
+## How It Was Made
 
 This game was created in Unity from scratch and includes:
 
@@ -40,7 +40,7 @@ This game was created in Unity from scratch and includes:
 
 ---
 
-## 🏆 Leaderboards Integration
+## Leaderboards Integration
 
 Integrated using **Unity Leaderboards** from Unity Gaming Services:
 
@@ -51,9 +51,9 @@ Integrated using **Unity Leaderboards** from Unity Gaming Services:
 
 ---
 
-## 📺 Rewarded Ads – Second Life System
+## Rewarded Ads – Second Life System
 
-Implemented via **Unity Ads**:
+Implemented via **Unity Ads** & **UGS**:
 
 - Rewarded ads let the player **watch to continue once** after crashing.
 - Used Unity Mediation or Legacy Ads system.
@@ -61,7 +61,7 @@ Implemented via **Unity Ads**:
 
 ---
 
-## 🛠️ How to Run Locally
+## How to Run Locally
 
 1. Clone or download this repository.
 2. Open the project in **Unity Hub**.
