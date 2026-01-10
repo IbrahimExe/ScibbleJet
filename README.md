@@ -2,7 +2,7 @@
 
 ![AppImg](https://github.com/user-attachments/assets/163e28d5-da6b-45c1-8884-2653a1777f4d)
 
-# 🛫 Scribble Jet - A Unity 2D Infinite Runner
+# Scribble Jet - A Unity 2D Infinite Runner
 </div>
 
 > ⚠️ *This is my first attempt at a mobile game using the Unity Engine - as well as establishing the connection with Unity's Gaming Services.
