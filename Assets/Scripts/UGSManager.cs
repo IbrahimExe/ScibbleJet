@@ -39,7 +39,7 @@ public class UGSManager : MonoBehaviour
         // Clearing session allwos for multiple scores to be submitted from the same computer (After a restart)
         // AuthenticationService.Instance.ClearSessionToken();
 
-        // Create a guest profile for the player to quicly start playing:
+        // Create a guest profile for the player to quicly start playing
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
         Debug.Log("Signed in as Guest!");

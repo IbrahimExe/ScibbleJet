@@ -25,7 +25,7 @@ public class SpawnObstacles : MonoBehaviour
         float randomY = Random.Range(minY, maxY);
         GameObject selectedObstacle = obstacles[Random.Range(0, obstacles.Length)]; // Pick random obstacle
         GameObject spawnedObstacle = Instantiate(selectedObstacle, transform.position + new Vector3(randomX, randomY, 0), Quaternion.identity);
-        spawnedObstacle.AddComponent<ObstacleMovement>(); // Attach movement script
+        spawnedObstacle.AddComponent<ObstacleMovement>();
     }
 }
 

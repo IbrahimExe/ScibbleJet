@@ -183,7 +183,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayAgain()
     {
-        Time.timeScale = 1f; // Reset time scale
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
