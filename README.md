@@ -12,6 +12,10 @@
 Jetpack Escape is a 2D infinite runner game made in Unity, inspired by the gameplay of *Jetpack Joyride*.  
 Players collect coins and dodge randomly spawned obstacles while flying using limited jetpack fuel.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2a5f2e21-c99b-42ba-9810-1c6e4212b4c0" alt="ScribbleJetGameplay"> 
+</p>
+
 ---
 
 ## Features
@@ -49,6 +53,9 @@ Integrated using **Unity Leaderboards** from Unity Gaming Services:
 3. Used `Unity.Services.Leaderboards` package.
 4. Sent player distance as the score on game over.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/27f696a3-60d1-4efc-b600-713baee4eb14" alt="ScribbleJetLeaderboard"> 
+</p>
 ---
 
 ## Rewarded Ads – Second Life System
@@ -61,7 +68,14 @@ Implemented via **Unity Ads** & **UGS**:
 
 ---
 
-## How to Run Locally
+## Wanna Try Out ScribbleJet?
+
+Experience **ScribbleJet** right in your browser!  
+Play it now on **[itch.io](https://ibrahimexe.itch.io/scribblejet)**.
+
+---
+
+## Or Alternativley, Run it Locally:
 
 1. Clone or download this repository.
 2. Open the project in **Unity Hub**.
@@ -71,4 +85,4 @@ Implemented via **Unity Ads** & **UGS**:
 
 ---
   
-Inspired by one of my favorite mobile games to date; *Jetpack Joyride*!
+Inspired by one of my favorite mobile games to date; *Jetpack Joyride*, I hope you enjoy!
