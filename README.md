@@ -9,7 +9,7 @@
 > I hope to regularly continue to update and polish the game as it's the first game up on my Itch page!*
 
 ## 🎮 Overview
-Jetpack Escape is a 2D infinite runner game made in Unity, inspired by the gameplay of *Jetpack Joyride*.  
+Scribble Jet is a 2D infinite runner game made in Unity, inspired by the gameplay of *Jetpack Joyride*.  
 Players collect coins and dodge randomly spawned obstacles while flying using limited jetpack fuel.
 
 <p align="center">
